@@ -3,4 +3,4 @@ project(ppm_gradient LANGUAGES CXX)
 
 
 include_directories(include)
-add_executable(ppm_gradient src/main.cpp src/utils.c)
+add_executable(ppm_gradient src/main.cpp src/vec3.h)
