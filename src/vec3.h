@@ -49,7 +49,37 @@ class vec3{
         }
     }
 };
-
-
+inline std::ostream& operator<<(std::ostream& out, const vec3& v){
+    std::cout << ' ' << v.e[0] << ' ' << v.e[1] << ' ' << v.e[2];
+}
+inline vec3 operator+(const vec3& v1, const vec3& v2){
+    return vec3(v1.x() + v2.x(), v1.y() + v2.y(), v1.z() + v2.z());
+}
+inline vec3 operator-(const vec3& v1, const vec3& v2){
+    return vec3(v1.x() - v2.x(), v1.y() - v2.y(), v1.z() - v2.z());
+}
+inline vec3 operator*(const vec3& v1, const vec3& v2){
+    return vec3(v1.x() * v2.x(), v1.y() * v2.y(), v1.z() * v2.z());
+}
+inline vec3 operator*(double t, const vec3& v2){
+    return vec3(t + v2.x(), t + v2.y(), t + v2.z());
+}
+inline vec3 operator*(const vec3& v2, double t){
+    return vec3(t + v2.x(), t + v2.y(), t + v2.z());
+}
+inline vec3 operator/(const vec3& v2, double t){
+    return vec3(v2.x() / t, v2.y() / t, v2.z() / t);
+}
+inline double dot_product(const vec3& v1, const vec3& v2){
+    return (v1.x() * v2.x() + v1.y() * v2.y() + v1.z() * v2.z());
+} 
+inline vec3 cross_product(const vec3& v1, const vec3& v2){
+    return vec3(u.e[1] * v.e[2] - u.e[2] * v.e[1],
+                u.e[2] * v.e[0] - u.e[0] * v.e[2],
+                u.e[0] * v.e[1] - u.e[1] * v.e[0]);
+}
+inline vec3 unit_vector(const vec3& v){
+    return v / v.length();
+}
 
 #endif 
