@@ -38,19 +38,28 @@ class vec3{
             e[2] *= v.z();
             return *this;
         }
+        vec3& operator*=(double t) {
+            e[0] *= t;
+            e[1] *= t;
+            e[2] *= t;
+            return *this;
+        }
+
         vec3& operator/=(double t) {
             return *this *= 1/t;
         }
         double length() const{
             return std::sqrt(e[0]*e[0] + e[1]*e[1] + e[2]*e[2]);
         }
-        double length_squared(){
+        double length_squared() const{
             return e[0]*e[0] + e[1]*e[1] + e[2]*e[2];
         }
-    }
+    
 };
+using point3 = vec3;
 inline std::ostream& operator<<(std::ostream& out, const vec3& v){
-    std::cout << ' ' << v.e[0] << ' ' << v.e[1] << ' ' << v.e[2];
+    out << ' ' << v.e[0] << ' ' << v.e[1] << ' ' << v.e[2];
+    return out;
 }
 inline vec3 operator+(const vec3& v1, const vec3& v2){
     return vec3(v1.x() + v2.x(), v1.y() + v2.y(), v1.z() + v2.z());
@@ -74,9 +83,9 @@ inline double dot_product(const vec3& v1, const vec3& v2){
     return (v1.x() * v2.x() + v1.y() * v2.y() + v1.z() * v2.z());
 } 
 inline vec3 cross_product(const vec3& v1, const vec3& v2){
-    return vec3(u.e[1] * v.e[2] - u.e[2] * v.e[1],
-                u.e[2] * v.e[0] - u.e[0] * v.e[2],
-                u.e[0] * v.e[1] - u.e[1] * v.e[0]);
+    return vec3(v1.e[1] * v2.e[2] - v1.e[2] * v2.e[1],
+                v1.e[2] * v2.e[0] - v1.e[0] * v2.e[2],
+                v1.e[0] * v2.e[1] - v1.e[1] * v2.e[0]);
 }
 inline vec3 unit_vector(const vec3& v){
     return v / v.length();
