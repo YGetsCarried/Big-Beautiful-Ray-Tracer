@@ -20,5 +20,8 @@ inline double degrees_to_radians(double degrees){
 #include "ray.h"
 #include "vec3.h"
 #include "interval.h"
+#include "hittable.h"
+#include "hittable_lists.h"
+#include "camera.h"
 
 #endif
