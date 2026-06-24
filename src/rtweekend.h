@@ -5,6 +5,7 @@
 #include <iostream>
 #include <limits>
 #include <memory>
+#include <cstdlib>
 
 using std::make_shared;
 using std::shared_ptr;
@@ -12,16 +13,14 @@ using std::shared_ptr;
 const double infinity = std::numeric_limits<double>::infinity();
 const double pi = 3.1415926535897932385;
 
+
 inline double degrees_to_radians(double degrees){
     return degrees * (pi/180.0);
 }
-
-#include "color.h"
-#include "ray.h"
-#include "vec3.h"
-#include "interval.h"
-#include "hittable.h"
-#include "hittable_lists.h"
-#include "camera.h"
-
+inline double rand_num_gen(){
+    return std::rand() / (RAND_MAX+1.0);
+}
+inline double rand_num_gen(double min, double max){
+    return min + (max-min)*rand_num_gen(); 
+}
 #endif

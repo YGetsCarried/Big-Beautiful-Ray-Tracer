@@ -1,10 +1,9 @@
-
-
 #include <fstream>
+#include "rtweekend.h"
 #include "hittable.h"
 #include "hittable_lists.h"
 #include "sphere.h"
-#include "interval.h"
+#include "camera.h"
 
 
 int main(){
@@ -18,6 +17,8 @@ int main(){
 
     cam.aspect_ratio = 16.0 / 9.0;
     cam.image_width  = 400;
+    cam.samples_per_pixel = 100;
+    cam.max_bounces = 50;
 
     cam.render(world);
     return 0;
