@@ -6,11 +6,14 @@
 #include "interval.h"
 #include <memory>
 
+class material;
+
 class hit_record{
     public:
         point3 p;
         double t;
         vec3 normal;
+        shared_ptr<material> mat;
         bool front_face;
         void set_face_normals(const ray &r, const vec3& normal_vector)
         {
@@ -22,6 +25,5 @@ class hittable{
     public:
         virtual ~hittable() = default;
         virtual bool hit(const ray& r, interval ray_t, hit_record& rec) const = 0;
-    
 };
 #endif
