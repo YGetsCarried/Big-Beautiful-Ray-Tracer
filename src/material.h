@@ -60,7 +60,7 @@ class dielectric : public material {
             bool cannot_refract = ri * sin_theta > 1.0;
             vec3 direction;
 
-            if (cannot_refract)
+            if (cannot_refract || reflectance(cos_theta, ri) > rand())
                 direction = reflect(unit_direction, rec.normal);
             else
                 direction = refract(unit_direction, rec.normal, ri);
@@ -70,6 +70,12 @@ class dielectric : public material {
         }
     private:
         double refraction_index;
+        //schlicks approximation
+        static double reflectance(double cos, double reflection_index){
+            auto r0 = (1-reflection_index) / (1+reflection_index);
+            r0 = r0*r0;
+            return r0 + (1-r0)*std::pow((1-cos), 5);
+        }
 };
 
 
