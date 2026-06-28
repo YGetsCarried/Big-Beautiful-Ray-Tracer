@@ -1,10 +1,10 @@
-# 🌌 Big Beautiful Ray Tracer
+# Big Beautiful Ray Tracer
 
 A physically-based ray tracer written from scratch in **C++**, built for fun and for the love of light simulation. Renders photorealistic scenes with diffuse, metallic, and dielectric (glass) materials, a fully configurable camera with depth-of-field, and multi-sample anti-aliasing — all output to PPM image format.
 
 ---
 
-## ✨ Features
+## Features
 
 - **Monte Carlo path tracing** with configurable samples-per-pixel and bounce depth
 - **Three material types:**
@@ -21,7 +21,7 @@ A physically-based ray tracer written from scratch in **C++**, built for fun and
 
 ---
 
-## 🏗️ Project Structure
+## Project Structure
 
 ```
 Big-Beautiful-Ray-Tracer/
@@ -43,7 +43,7 @@ Big-Beautiful-Ray-Tracer/
 
 ---
 
-## 🚀 Build & Run
+## Build & Run
 
 ### Requirements
 
@@ -72,7 +72,7 @@ convert image.ppm output.png
 
 ---
 
-## 🎬 Default Scene
+## Default Scene
 
 The default scene (defined in `main.cpp`) renders the classic "final scene" from *Ray Tracing in One Weekend* — a ground plane populated with hundreds of randomly placed small spheres (diffuse, metal, and glass), plus three large feature spheres (glass, lambertian, and polished metal). The camera is configured with:
 
@@ -85,11 +85,11 @@ The default scene (defined in `main.cpp`) renders the classic "final scene" from
 | Defocus angle | 0.6° |
 | Focus distance | 10.0 |
 
-> ⚠️ Increasing `samples_per_pixel` dramatically improves image quality but also render time. A value of 500+ is recommended for final renders.
+> Increasing `samples_per_pixel` dramatically improves image quality but also render time. A value of 500+ is recommended for final renders.
 
 ---
 
-## 🧠 Architecture Notes
+## Architecture Notes
 
 - All geometry inherits from the abstract `hittable` class via `hit()`, making it easy to add new primitives (triangles, boxes, etc.)
 - Materials are polymorphic via the `material` base class — new BRDFs can be plugged in by implementing `scatter()`
@@ -98,10 +98,10 @@ The default scene (defined in `main.cpp`) renders the classic "final scene" from
 
 ---
 
-## 📚 References & Inspiration
+## References & Inspiration
 
 - [_Ray Tracing in One Weekend_](https://raytracing.github.io/books/RayTracingInOneWeekend.html) — Peter Shirley
-- Built from scratch because it seemed very fun to make 🤷
+- Built from scratch because it seemed very fun to make 
 
 ---
 
